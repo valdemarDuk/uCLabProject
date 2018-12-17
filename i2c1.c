@@ -2,21 +2,21 @@
  * Filename	: I2C1.C 
  * 
  * Author	: Day Yann Fong (2018)
- * 
+ * Modified by	: Valdemar Duk 
  * Descriptions:
  * These source code are created based on Explorer16 board PIC24 platform, using 
  * I2C1. It contains functions that perform basic general I2C operations and 
  * transactions. 
  * No device specific code should be added into this generic functions.
- * 
+ * Modifications: Added functions to read and write bytes in i2C communication with more ease.
 **/
 
 #include "i2c1.h"
 #include "uart2.h"
 
 #define FCY 16000000   // Fcy = 16MHz
-#define addr1 (0x20) // I²C address of SENSOR shifted by 1 bit
-#define addr2 (0x22) // I²C address of SENSOR shifted by 1 bit
+#define addr1 (0x20) // IÂ²C address of SENSOR shifted by 1 bit
+#define addr2 (0x22) // IÂ²C address of SENSOR shifted by 1 bit
 
 /*
     Operation: Perform an I2C initialization.
@@ -178,7 +178,7 @@ void readNI2C1(char cAddr, char* pcArrayData, int iCnt)
 
 ///////////////////////////////////////////////////////////////////
 // Split 16-bit register address into two bytes and write
-// the address + data via I²C
+// the address + data via IÂ²C
 ///////////////////////////////////////////////////////////////////
 void WriteByte(unsigned char reg,char data, int selectvar1) {
  char data_write[2];
